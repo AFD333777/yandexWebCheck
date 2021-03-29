@@ -11,14 +11,24 @@
 <body>
 <h1>Миссия Колонизация Марса</h1>
 <h4>И на Марсе будут яблони цвести!</h4>
-    {% if ("строитель" or "инженер") in spec.lower()%}
-    <h2>Инженерные тренажеры</h2>
-    <img src="/static/img/riana.jpg" alt="здесь должна была быть картинка для инженеров">
-    {% elif "врач" in spec.lower() %}
-    <h2>Научные симуляторы</h2>
-    <img src="/static/img/MARS-2-2.png">
-    {% else %}
-    {% endif %}
+<h3>Список профессий</h3>
+
+        {% if typeList == "ol" %}
+        <ol>
+            {% for prof in list_prof %}
+                <li>{{prof}}</li>
+            {% endfor %}
+        </ol>
+        {% elif typeList == "ul"%}
+        <ul>
+            {% for prof in list_prof %}
+                <li>{{prof}}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h2>Ошибка! Неверный параметр</h2>
+        {% endif %}
+
 
 </body>
 </html>
